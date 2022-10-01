@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import Stats from "three/examples/jsm/libs/stats.module";
 import SceneInit from "./lib/SceneInit";
-import CustomEditor from "./components/CustomEditor";
-import { vertexShader, fragmentShader } from "./lib/Shaders";
+import vShader from "./lib/vShader";
+import fShader from "./lib/fShader";
 
 export default function Home() {
   let test, audioContext, audioElement, dataArray, analyser, source;
 
   let gui;
-  const initializeGui = async () => {
+  const initGui = async () => {
     const dat = await import("dat.gui");
     gui = new dat.GUI();
     gui.close();
@@ -58,8 +60,8 @@ export default function Home() {
     const planeCustomMaterial = new THREE.ShaderMaterial({
       // note: this is where the magic happens
       uniforms: uniforms,
-      vertexShader: vertexShader(),
-      fragmentShader: fragmentShader(),
+      vertexShader: vShader(),
+      fragmentShader: fShader(),
       wireframe: true,
     });
 
@@ -76,7 +78,7 @@ export default function Home() {
     test.scene.add(planeMesh);
 
     if (gui === undefined) {
-      await initializeGui();
+      await initGui();
       const audioWaveGui = gui.addFolder("audio waveform");
       audioWaveGui
         .add(planeCustomMaterial, "wireframe")
@@ -105,7 +107,7 @@ export default function Home() {
 
   useEffect(() => {
     test = new SceneInit("myThreeJsCanvas");
-    test.initializeScene();
+    test.initScene();
     test.animate();
   }, []);
 
@@ -120,7 +122,7 @@ export default function Home() {
       <div className="absolute bottom-2 right-2">
         <audio
           id="myAudio"
-          src="./MO3Beatbox.mp3"
+          src="./MOBAMBA.mp3"
           className="w-80"
           controls
           autoPlay

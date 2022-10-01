@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Stats from "three/examples/jsm/libs/stats.module";
-import {SceneInit} from "./lib/SceneInit.js";
+import {SceneInit} from "./lib/SceneInit";
 import vShader from "./lib/vShader";
 import fShader from "./lib/fShader";
 
@@ -118,6 +118,8 @@ export default function Home() {
   // };
 
   return (
+    <>
+    <SceneInit/>
     <div className="flex flex-col items-center justify-center">
       <div className="absolute bottom-2 right-2">
         <audio
@@ -137,5 +139,6 @@ export default function Home() {
       <canvas id="myThreeJsCanvas"></canvas>
       {/* {showCustomEditor ? <CustomEditor /> : null} */}
     </div>
+    </>
   );
 }

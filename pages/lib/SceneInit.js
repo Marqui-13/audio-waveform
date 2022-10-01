@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Stats from "three/examples/jsm/libs/stats.module";
 
-class SceneInit {
+export default class SceneInit {
   constructor(canvasID, camera, scene, stats, controls, renderer, fov = 36) {
     this.fov = fov;
     this.scene = scene;
@@ -82,5 +82,3 @@ class SceneInit {
     this.renderer.setSize(window.innerWidth, window.innerHeight);
   }
 }
-
-export {SceneInit};

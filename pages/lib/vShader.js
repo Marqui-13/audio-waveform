@@ -1,4 +1,4 @@
-const vertexShader = () => {
+const vShader = () => {
     return `
         varying float x;
         varying float y;
@@ -33,4 +33,4 @@ const vertexShader = () => {
       `;
   };
 
-  export default vertexShader;
+  export default vShader;

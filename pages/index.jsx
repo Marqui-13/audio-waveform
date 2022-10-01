@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import Stats from "three/examples/jsm/libs/stats.module";
-import SceneInit from "./lib/SceneInit";
+import {SceneInit} from "./lib/SceneInit.js";
 import vShader from "./lib/vShader";
 import fShader from "./lib/fShader";
 

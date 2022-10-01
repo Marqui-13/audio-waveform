@@ -60,5 +60,5 @@ const vertexShader = () => {
     `;
   };
   
-  export default { vertexShader, fragmentShader };
+  export default ( vertexShader, fragmentShader );
   

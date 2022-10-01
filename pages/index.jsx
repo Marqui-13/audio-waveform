@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import * as THREE from "three";
-import SceneInitialization from "./lib/SceneInitialization";
+import SceneInit from "./lib/SceneInit";
 import CustomEditor from "./components/CustomEditor";
 import { vertexShader, fragmentShader } from "./lib/Shaders";
 
@@ -104,7 +104,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    test = new SceneInitialization("myThreeJsCanvas");
+    test = new SceneInit("myThreeJsCanvas");
     test.initializeScene();
     test.animate();
   }, []);

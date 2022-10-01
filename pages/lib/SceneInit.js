@@ -83,4 +83,4 @@ class SceneInit {
   }
 }
 
-export default SceneInit
+export {SceneInit};
